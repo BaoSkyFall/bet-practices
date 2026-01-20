@@ -43,7 +43,7 @@ const BettingInterface = () => {
         homeFlag: <Flag countryCode="vn" size={24} />,
         awayFlag: <Flag countryCode="cn" size={24} />,
         league: "AFC U23 Asian Cup 2026",
-        time: "22:30 - Jan 25, 2026",
+        time: "22:30 - Jan 20 2026",
         odds: {
             vietnam: 1.6,
             draw: 1.52,
