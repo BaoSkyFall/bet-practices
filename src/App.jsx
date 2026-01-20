@@ -17,13 +17,13 @@ const AppContent = () => {
     const menuItems = [
         {
             key: '/',
-            icon: <HomeOutlined />,
-            label: <Link to="/">Betting</Link>
+            icon: <DashboardOutlined />,
+            label: <Link to="/">Dashboard</Link>
         },
         {
-            key: '/admin',
-            icon: <DashboardOutlined />,
-            label: <Link to="/admin">Dashboard</Link>
+            key: '/bet',
+            icon: <HomeOutlined />,
+            label: <Link to="/bet">Betting</Link>
         }
     ];
 
@@ -79,8 +79,8 @@ const AppContent = () => {
 
             <Content style={{ padding: '24px', flex: 1 }}>
                 <Routes>
-                    <Route path="/" element={<BettingInterface />} />
-                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/" element={<AdminDashboard />} />
+                    <Route path="/bet" element={<BettingInterface />} />
                 </Routes>
             </Content>
 
