@@ -263,10 +263,10 @@ const BettingInterface = () => {
                                 placeholder="Enter amount"
                                 value={amount}
                                 onChange={(value) => setAmount(value)}
-                                min={1}
+                                min={100000}
                                 style={{ width: '100%', borderRadius: '12px' }}
-                                formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                formatter={value => `${value} VND`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={value => value.replace(/VND\s?|(,*)/g, '')}
                             />
                         </Space>
                     </Col>
