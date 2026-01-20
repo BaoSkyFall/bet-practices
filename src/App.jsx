@@ -20,11 +20,11 @@ const AppContent = () => {
             icon: <HomeOutlined />,
             label: <Link to="/">Betting</Link>
         },
-        // {
-        //     key: '/admin',
-        //     icon: <DashboardOutlined />,
-        //     label: <Link to="/admin">Dashboard</Link>
-        // }
+        {
+            key: '/admin',
+            icon: <DashboardOutlined />,
+            label: <Link to="/admin">Dashboard</Link>
+        }
     ];
 
     return (
