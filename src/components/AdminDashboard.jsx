@@ -24,6 +24,17 @@ import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 const { Title, Text } = Typography;
 
 const AdminDashboard = () => {
+    // Flag component for cross-platform flag rendering (Windows doesn't support emoji flags)
+    const Flag = ({ countryCode, size = 16, style = {} }) => (
+        <img
+            src={`https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`}
+            srcSet={`https://flagcdn.com/w80/${countryCode.toLowerCase()}.png 2x`}
+            width={size}
+            alt={countryCode}
+            style={{ verticalAlign: 'middle', ...style }}
+        />
+    );
+
     const [bets, setBets] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -83,9 +94,9 @@ const AdminDashboard = () => {
                     china: 'red'
                 };
                 const labels = {
-                    vietnam: '🇻🇳 Vietnam',
+                    vietnam: <><Flag countryCode="vn" /> Vietnam</>,
                     draw: '🤝 Draw',
-                    china: '🇨🇳 China'
+                    china: <><Flag countryCode="cn" /> China</>
                 };
                 return (
                     <Tag color={colors[team] || 'default'}>
@@ -233,9 +244,9 @@ const AdminDashboard = () => {
                         const count = selectionCounts[team] || 0;
                         const percentage = totalBets > 0 ? ((count / totalBets) * 100).toFixed(1) : 0;
                         const labels = {
-                            vietnam: '🇻🇳 Vietnam',
+                            vietnam: <><Flag countryCode="vn" size={20} /> Vietnam</>,
                             draw: '🤝 Draw',
-                            china: '🇨🇳 China'
+                            china: <><Flag countryCode="cn" size={20} /> China</>
                         };
                         const colors = {
                             vietnam: 'var(--accent-danger)',
@@ -281,6 +292,7 @@ const AdminDashboard = () => {
                         columns={columns}
                         rowKey="id"
                         pagination={{ pageSize: 10 }}
+                        scroll={{ x: 800 }}
                         style={{ background: 'transparent' }}
                     />
                 ) : (
