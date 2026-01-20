@@ -1,0 +1,408 @@
+/* Global Styles for Betting Tracker App */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Dark Theme Colors */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a24;
+  --bg-card-hover: #22222e;
+
+  /* Accent Colors */
+  --accent-primary: #6366f1;
+  --accent-secondary: #818cf8;
+  --accent-success: #22c55e;
+  --accent-warning: #f59e0b;
+  --accent-danger: #ef4444;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-success: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+  /* Border */
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Ant Design Overrides for Dark Theme */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  border-color: var(--accent-primary) !important;
+  box-shadow: var(--shadow-glow) !important;
+  transform: translateY(-2px);
+}
+
+.ant-btn-primary {
+  background: var(--gradient-primary) !important;
+  border: none !important;
+  height: 48px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow) !important;
+}
+
+.ant-input,
+.ant-input-number {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  color: var(--text-primary) !important;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:focus,
+.ant-input-number:focus,
+.ant-input:hover,
+.ant-input-number:hover {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+.ant-input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.ant-table {
+  background: var(--bg-card) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+.ant-table-thead>tr>th {
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  font-weight: 600 !important;
+}
+
+.ant-table-tbody>tr>td {
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-table-tbody>tr:hover>td {
+  background: var(--bg-card-hover) !important;
+}
+
+.ant-statistic-title {
+  color: var(--text-secondary) !important;
+}
+
+.ant-statistic-content {
+  color: var(--text-primary) !important;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.glow {
+  animation: glow 2s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .ant-layout-header {
+    padding: 0 16px !important;
+  }
+
+  .ant-card {
+    border-radius: 12px !important;
+  }
+
+  .ant-card-body {
+    padding: 16px !important;
+  }
+
+  .ant-btn-primary {
+    height: 44px !important;
+    font-size: 15px !important;
+  }
+
+  .ant-input,
+  .ant-input-number {
+    padding: 10px 14px !important;
+    font-size: 16px !important;
+    /* Prevents zoom on iOS */
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .ant-layout-header {
+    padding: 0 12px !important;
+    height: 56px !important;
+    line-height: 56px !important;
+  }
+
+  .ant-menu-horizontal {
+    font-size: 14px !important;
+  }
+
+  .ant-card {
+    border-radius: 10px !important;
+  }
+
+  .ant-card-body {
+    padding: 12px !important;
+  }
+
+  .ant-btn-primary {
+    height: 48px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  .ant-input,
+  .ant-input-number {
+    padding: 12px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Full width columns on mobile */
+  .ant-col-xs-24 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Typography adjustments */
+  h1.ant-typography {
+    font-size: 20px !important;
+  }
+
+  h2.ant-typography {
+    font-size: 18px !important;
+  }
+
+  h4.ant-typography {
+    font-size: 16px !important;
+  }
+
+  /* Statistic cards */
+  .ant-statistic-content-value {
+    font-size: 20px !important;
+  }
+
+  /* Table responsive */
+  .ant-table {
+    font-size: 13px !important;
+  }
+
+  .ant-table-thead>tr>th,
+  .ant-table-tbody>tr>td {
+    padding: 8px 6px !important;
+  }
+
+  /* Tag adjustments */
+  .ant-tag {
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+  }
+
+  /* Prediction cards - smaller on mobile */
+  .ant-card-body {
+    padding: 8px !important;
+  }
+
+  .ant-card-body h4.ant-typography {
+    font-size: 12px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .ant-card-body>div:first-child {
+    font-size: 24px !important;
+    margin-bottom: 6px !important;
+  }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+  .ant-layout-header {
+    padding: 0 8px !important;
+  }
+
+  .ant-card-body {
+    padding: 10px !important;
+  }
+
+  h2.ant-typography {
+    font-size: 16px !important;
+  }
+
+  .ant-statistic-content-value {
+    font-size: 18px !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .ant-card:hover {
+    transform: none;
+  }
+
+  .ant-btn-primary:hover {
+    transform: none;
+  }
+
+  /* Larger touch targets */
+  .ant-btn {
+    min-height: 44px !important;
+  }
+
+  .ant-input,
+  .ant-input-number {
+    min-height: 44px !important;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .ant-layout-header {
+    height: 48px !important;
+    line-height: 48px !important;
+  }
+
+  .ant-layout-content {
+    padding: 12px !important;
+  }
+}
