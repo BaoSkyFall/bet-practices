@@ -96,6 +96,10 @@ const BettingInterface = () => {
             message.error('Please enter a valid amount');
             return;
         }
+        if (amount < 100000) {
+            message.error('Minimum bet amount is 100,000 VND');
+            return;
+        }
         if (!selection) {
             message.error('Please select a betting option');
             return;
